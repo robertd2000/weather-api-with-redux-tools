@@ -1,24 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWeatherThunk } from './redux/reducer';
+import { Header } from './components/Header';
+import { SearchedList } from './components/SearchedCitiesList';
 
 function App() {
+  const data = useSelector((state) => state.reducer.currentWeather);
+
+  const { name, temp } = data;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <h3 className="App">Hello, {name}</h3>
+        <Header />
+        <SearchedList />
+      </div>
+    </>
   );
 }
 
