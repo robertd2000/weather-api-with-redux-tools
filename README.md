@@ -3,7 +3,7 @@
 Можно узнать погоду в городах мира (температура, cкорость ветра, влажность и т.д. )
 
 Разработано на React + Redux (ToolKits)
-[Тест - ] (https://robertd2000.github.io/weather-api-with-redux-tools/)
+[Тест - ](https://robertd2000.github.io/weather-api-with-redux-tools/)
 
 # Getting Started with Create React App
 
