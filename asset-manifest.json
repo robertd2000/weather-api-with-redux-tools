@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/weather-api-with-redux-tools/static/css/main.2651b1e0.chunk.css",
+    "main.js": "/weather-api-with-redux-tools/static/js/main.37def1ec.chunk.js",
+    "main.js.map": "/weather-api-with-redux-tools/static/js/main.37def1ec.chunk.js.map",
+    "runtime-main.js": "/weather-api-with-redux-tools/static/js/runtime-main.4dffef36.js",
+    "runtime-main.js.map": "/weather-api-with-redux-tools/static/js/runtime-main.4dffef36.js.map",
+    "static/js/2.a53904be.chunk.js": "/weather-api-with-redux-tools/static/js/2.a53904be.chunk.js",
+    "static/js/2.a53904be.chunk.js.map": "/weather-api-with-redux-tools/static/js/2.a53904be.chunk.js.map",
+    "static/js/3.a27df8c6.chunk.js": "/weather-api-with-redux-tools/static/js/3.a27df8c6.chunk.js",
+    "static/js/3.a27df8c6.chunk.js.map": "/weather-api-with-redux-tools/static/js/3.a27df8c6.chunk.js.map",
+    "index.html": "/weather-api-with-redux-tools/index.html",
+    "static/css/main.2651b1e0.chunk.css.map": "/weather-api-with-redux-tools/static/css/main.2651b1e0.chunk.css.map",
+    "static/js/2.a53904be.chunk.js.LICENSE.txt": "/weather-api-with-redux-tools/static/js/2.a53904be.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4dffef36.js",
+    "static/js/2.a53904be.chunk.js",
+    "static/css/main.2651b1e0.chunk.css",
+    "static/js/main.37def1ec.chunk.js"
+  ]
+}
