@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/weather-api-with-redux-tools/static/css/main.2651b1e0.chunk.css",
-    "main.js": "/weather-api-with-redux-tools/static/js/main.37def1ec.chunk.js",
-    "main.js.map": "/weather-api-with-redux-tools/static/js/main.37def1ec.chunk.js.map",
+    "main.js": "/weather-api-with-redux-tools/static/js/main.e59b26e6.chunk.js",
+    "main.js.map": "/weather-api-with-redux-tools/static/js/main.e59b26e6.chunk.js.map",
     "runtime-main.js": "/weather-api-with-redux-tools/static/js/runtime-main.4dffef36.js",
     "runtime-main.js.map": "/weather-api-with-redux-tools/static/js/runtime-main.4dffef36.js.map",
     "static/js/2.a53904be.chunk.js": "/weather-api-with-redux-tools/static/js/2.a53904be.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4dffef36.js",
     "static/js/2.a53904be.chunk.js",
     "static/css/main.2651b1e0.chunk.css",
-    "static/js/main.37def1ec.chunk.js"
+    "static/js/main.e59b26e6.chunk.js"
   ]
 }
