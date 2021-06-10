@@ -1,3 +1,11 @@
+Приложение погоды
+
+Можно узнать погоду в городах мира (температура, cкорость ветра, влажность и т.д. )
+
+Разработано на React + Redux (ToolKits)
+
+[Тест - ](https://robertd2000.github.io/weather-api-with-redux-tools/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
