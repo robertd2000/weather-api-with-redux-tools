@@ -17,7 +17,7 @@ export const SearchedList = () => {
   }
   return (
     <div className="container">
-      <div className="row shadow-lg p-3 mb-5 bg-white rounded">
+      <div className="row p-3 mb-5 rounded">
         {list.reverse().map((i) => {
           return (
             <CityItem

@@ -14,10 +14,10 @@ export const ForecastHour = ({
   return (
     <div>
       <div
-        className={'card text-white bg-info mb-3 ' + s.cardItem}
+        className={'card text-white mb-3 ' + s.cardItem}
         style={{ width: 18 + 'rem' }}
       >
-        <div className="card-body bg-info mb-3">
+        <div className="card-body mb-3">
           <h5 className="card-title">
             Дата - {day}.{month}
           </h5>

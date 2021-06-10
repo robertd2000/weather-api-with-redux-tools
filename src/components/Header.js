@@ -34,7 +34,11 @@ export const Header = () => {
           />
 
           <div className="input-group-append">
-            <button className="btn btn-secondary" type="submit">
+            <button
+              className="btn btn-info"
+              type="submit"
+              style={{ backgroundColor: '#b690da', border: '#b690da' }}
+            >
               Поиск
             </button>
           </div>

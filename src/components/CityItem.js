@@ -39,7 +39,7 @@ export const CityItem = ({
         name={name}
         onCloseModal={onCloseModal}
       />
-      <div className="col-sm-6 shadow-lg p-3 mb-5 bg-white rounded">
+      <div className="col-sm-6 shadow-lg p-3 mb-5 rounded">
         <div
           className="card"
           style={{ marginBottom: '15px', marginTop: '15px' }}
@@ -97,6 +97,7 @@ export const CityItem = ({
             <hr />
             <button
               className="btn btn-secondary"
+              style={{ backgroundColor: '#b8b3dd', border: '#b8b3dd' }}
               onClick={() => showModal(true)}
             >
               Открыть прогноз

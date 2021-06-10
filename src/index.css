@@ -1,10 +1,25 @@
 body {
+  background: url('./assets/bg.jpg');
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  background-color: #b8b3dd;
+}
+
+.App {
+  color: white;
+  margin: 20px auto;
+}
+
+.container {
+  background: transparent;
 }
 
 code {
@@ -15,6 +30,7 @@ code {
   width: 100%;
   max-width: 1200px;
   min-width: 700px;
+  border: inherit;
 }
 
 .card {
@@ -24,6 +40,7 @@ code {
     0.5s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
   cursor: pointer;
   margin: 20px;
+  border-radius: 5%;
 }
 
 .modal {
@@ -33,4 +50,8 @@ code {
 
 .modal-dialog {
   max-width: 1000px;
+}
+
+.modal-content {
+  border: inherit;
 }

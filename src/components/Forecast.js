@@ -32,9 +32,7 @@ export const Forecast = ({ forecast, isModalOpen, name, onCloseModal }) => {
             </button>
           </div>
           <div className="modal-body">
-            <div className="row shadow-lg p-3 mb-5 bg-white rounded">
-              {forecasts}
-            </div>{' '}
+            <div className="row shadow-lg p-3 mb-5 rounded">{forecasts}</div>{' '}
           </div>
         </div>
       </div>
