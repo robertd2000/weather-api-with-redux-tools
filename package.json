@@ -1,7 +1,7 @@
 {
   "name": "weather-api",
   "version": "0.1.0",
-  "homepage": "https://robertd2000.github.io/weather-api-with-redux-tools",
+  "homepage": "https://robertd2000.github.io/weather-api-with-redux-tools/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
