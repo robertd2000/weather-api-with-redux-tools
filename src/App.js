@@ -6,8 +6,8 @@ import { SearchedList } from './components/SearchedCitiesList';
 function App() {
   const data = useSelector((state) => state.reducer.currentWeather);
 
-  const { name, icon } = data;
-  console.log(data);
+  const { name } = data;
+
   return (
     <>
       <div className="container">

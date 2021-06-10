@@ -25,6 +25,7 @@ export const getWeatherThunk = createAsyncThunk(
   'weather/getWeatherThunk',
   async (id) => {
     const response = Service.getWeatherData(id);
+    console.log(response);
     return response;
   }
 );
@@ -52,53 +53,86 @@ const weatherSlice = createSlice({
         state.loading = true;
       })
       .addCase(getWeatherThunk.fulfilled, (state, action) => {
-        if (action.payload.cod === '400') {
+        if (!action.payload) {
+          state.loading = false;
+          state.alert = true;
+          state.error =
+            'Пожалуйста введите корректное название города для поиска.';
+          return state;
+        }
+        const [data1, data2] = action.payload;
+        if (data1.cod === '400' || !data1) {
           state.loading = false;
           state.alert = true;
           state.error =
             'Пустой ввод. Пожалуйста введите название города для поиска.';
-
           return state;
         }
 
-        if (action.payload.cod === '404') {
+        if (data1.cod === '404') {
           state.loading = false;
           state.alert = true;
           state.error = 'Город не найден';
-
           return state;
         }
 
-        if (action.payload.cod !== '400') {
+        console.log(action.payload);
+        if (data1.cod !== '400') {
+          const months = [
+            'Январь',
+            'Февраль',
+            'Март',
+            'Апрель',
+            'Май',
+            'Июнь',
+            'Июль',
+            'Август',
+            'Сентябрь',
+            'Октябрь',
+            'Ноябрь',
+            'Декабрь',
+          ];
+          const days = [
+            'Воскресенье',
+            'Понедельник',
+            'Вторник',
+            'Среда',
+            'Четверг',
+            'Пятница',
+            'Суббота',
+          ];
+          const currentDate = new Date();
+          const date = `${
+            days[currentDate.getDay()]
+          } ${currentDate.getDate()} ${months[currentDate.getMonth()]}`;
+          const sunset = new Date(data1.sys.sunset * 1000)
+            .toLocaleTimeString()
+            .slice(0, 5);
+          const sunrise = new Date(data1.sys.sunrise * 1000)
+            .toLocaleTimeString()
+            .slice(0, 5);
           state.currentWeather = {
             ...state.currentWeather,
-            name: action.payload.name,
-            temp: action.payload.main.temp,
-            wind: action.payload.wind.speed,
-            description: action.payload.weather[0].description,
-            humidity: action.payload.main.humidity,
-            pressure: action.payload.main.pressure,
-            iconCode: action.payload.weather[0].icon,
-            id: action.payload.id,
+            name: data1.name,
+            country: data1.sys.country,
+            temp: data1.main.temp,
+            highestTemp: data1.main.temp_max,
+            lowestTemp: data1.main.temp_min,
+            wind: data1.wind.speed,
+            description: data1.weather[0].description,
+            humidity: data1.main.humidity,
+            pressure: data1.main.pressure,
+            iconCode: data1.weather[0].icon,
+            id: data1.id,
+            clouds: data1.clouds.all,
+            sunrise,
+            sunset,
+            date,
+            forecast: data2.list,
           };
-          // const temp = Math.floor(action.payload.main.temp - 273);
-          // const name = action.payload.name;
-          // const weather = action.payload.weather[0].description;
-          // const wind = action.payload.wind.speed;
-          // const humidity = action.payload.main.humidity;
-          // const pressure = action.payload.main.pressure;
-          // state.currentWeather['name'] = name;
-          // state.currentWeather['temp'] = temp;
-          // state.currentWeather['description'] = weather;
-          // state.currentWeather['wind'] = wind;
-          // state.currentWeather['humidity'] = humidity;
-          // state.currentWeather['pressure'] = pressure;
 
-          // state.searchedCities.unshift(state.currentWeather);
-          state.searchedCities[action.payload.id] = state.currentWeather;
-
+          state.searchedCities[data1.id] = state.currentWeather;
           state.alert = false;
-
           localStorage.setItem(
             'listOfCities',
             JSON.stringify(state.searchedCities)

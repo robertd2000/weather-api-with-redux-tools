@@ -17,21 +17,31 @@ export const SearchedList = () => {
   }
   return (
     <div className="container">
-      {list.reverse().map((i) => {
-        return (
-          <CityItem
-            name={i.name}
-            description={i.description}
-            temp={i.temp}
-            wind={i.wind}
-            humidity={i.humidity}
-            pressure={i.pressure}
-            icon={i.icon}
-            id={i.id}
-            key={Math.random() * 100}
-          />
-        );
-      })}
+      <div className="row shadow-lg p-3 mb-5 bg-white rounded">
+        {list.reverse().map((i) => {
+          return (
+            <CityItem
+              name={i.name}
+              country={i.country}
+              date={i.date}
+              description={i.description}
+              temp={i.temp}
+              highestTemp={i.highestTemp}
+              lowestTemp={i.lowestTemp}
+              wind={i.wind}
+              humidity={i.humidity}
+              pressure={i.pressure}
+              icon={i.iconCode}
+              clouds={i.clouds}
+              sunrise={i.sunrise}
+              sunset={i.sunset}
+              id={i.id}
+              forecast={i.forecast}
+              key={Math.random() * 100}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
