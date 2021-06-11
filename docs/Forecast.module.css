@@ -1,0 +1,23 @@
+.show {
+  display: block;
+  position: absolute;
+  overflow: auto;
+
+  background-color: rgba(192, 189, 189, 0.2);
+  backdrop-filter: blur(1px);
+}
+
+.cardItem {
+  margin: 20px 10px;
+  text-align: center;
+}
+.cardImg {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: 0px auto;
+}
+
+.listItem {
+  color: black;
+}
