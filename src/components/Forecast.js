@@ -3,6 +3,9 @@ import s from './Forecast.module.css';
 
 export const Forecast = ({ forecast, isModalOpen, name, onCloseModal }) => {
   let isOpen = isModalOpen ? s.show : '';
+  if (!forecast) {
+    return <div>No data</div>;
+  }
   const forecasts = forecast.map((item) => {
     return (
       <ForecastHour
