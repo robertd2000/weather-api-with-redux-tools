@@ -2,9 +2,10 @@ import './App.css';
 import { useSelector } from 'react-redux';
 import { Header } from './components/Header';
 import { SearchedList } from './components/SearchedCitiesList';
+import { RootApp } from './types';
 
 function App() {
-  const data = useSelector((state) => state.reducer.currentWeather);
+  const data = useSelector((state: RootApp) => state.reducer.currentWeather);
 
   const { name } = data;
 

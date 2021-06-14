@@ -10,7 +10,7 @@
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "rootDir": "src",
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -33,6 +33,6 @@
     "jest",
     "src/setupTests.ts"
   ],
-  "types": ["typePatches"],
+  "types": ["typePatches", "webrtc"],
   "include": ["src"]
 }

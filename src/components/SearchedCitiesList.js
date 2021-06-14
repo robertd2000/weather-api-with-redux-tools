@@ -21,22 +21,23 @@ export const SearchedList = () => {
         {list.reverse().map((i) => {
           return (
             <CityItem
-              name={i.name}
-              country={i.country}
-              date={i.date}
-              description={i.description}
-              temp={i.temp}
-              highestTemp={i.highestTemp}
-              lowestTemp={i.lowestTemp}
-              wind={i.wind}
-              humidity={i.humidity}
-              pressure={i.pressure}
-              icon={i.iconCode}
-              clouds={i.clouds}
-              sunrise={i.sunrise}
-              sunset={i.sunset}
-              id={i.id}
-              forecast={i.forecast}
+              cityData={i}
+              // name={i.name}
+              // country={i.country}
+              // date={i.date}
+              // description={i.description}
+              // temp={i.temp}
+              // highestTemp={i.highestTemp}
+              // lowestTemp={i.lowestTemp}
+              // wind={i.wind}
+              // humidity={i.humidity}
+              // pressure={i.pressure}
+              // icon={i.iconCode}
+              // clouds={i.clouds}
+              // sunrise={i.sunrise}
+              // sunset={i.sunset}
+              // id={i.id}
+              // forecast={i.forecast}
               key={Math.random() * 100}
             />
           );

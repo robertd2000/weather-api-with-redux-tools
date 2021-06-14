@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWeatherThunk } from '../redux/reducer';
+import { RootApp } from '../types';
 import { Alert } from '../utils/Alert';
 
 export const Header = () => {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
-  const alert = useSelector((state) => state.reducer.alert);
-  const error = useSelector((state) => state.reducer.error);
+  const alert = useSelector((state: RootApp) => state.reducer.alert);
+  const error = useSelector((state: RootApp) => state.reducer.error);
 
-  const inputHandler = (e) => {
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
-  const buttonHandler = async (e) => {
+  const buttonHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     await dispatch(getWeatherThunk(text));
     setText('');

@@ -1,14 +1,18 @@
+import { ForecastItemType } from '../types';
 import s from './Forecast.module.css';
 
-export const ForecastHour = ({
-  temp,
-  month,
-  day,
-  hour,
-  icon,
-  pressure,
-  description,
-}) => {
+type ForecastHourType = {
+  forecastData: ForecastItemType;
+};
+
+export const ForecastHour: React.FC<ForecastHourType> = ({ forecastData }) => {
+  const temp = Math.floor(forecastData.main.temp * 1) / 1,
+    pressure = forecastData.main.pressure,
+    description = forecastData.weather[0].description,
+    icon = forecastData.weather[0].icon,
+    month = forecastData.dt_txt.slice(5, 7),
+    day = forecastData.dt_txt.slice(8, 10),
+    hour = forecastData.dt_txt.slice(11, 13);
   const iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
 
   return (
@@ -21,7 +25,7 @@ export const ForecastHour = ({
           <h5 className="card-title">
             Дата - {day}.{month}
           </h5>
-          <img className={s.cardImg} src={iconUrl} alt={temp} />
+          <img className={s.cardImg} src={iconUrl} alt={temp + ''} />
 
           {/* <p class="card-text">
             Some quick example text to build on the card title and make up the

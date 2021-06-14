@@ -1,34 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import Service from '../service/service';
-
-export type InitialStateType = {
-  currentWeather: currentWeatherType;
-  searchedCities: any;
-  loading: boolean;
-  alert: boolean;
-  error: string;
-};
-
-type currentWeatherType = {
-  name: string;
-  description: string;
-  temp: number;
-  wind: number;
-  humidity: number;
-  pressure: number;
-  icon?: any;
-  iconCode?: string;
-  id: null | number;
-  country: string;
-  highestTemp: number;
-  lowestTemp: number;
-
-  clouds: number;
-  sunrise: string;
-  sunset: string;
-  date: string;
-  forecast: Array<object>;
-};
+import { InitialStateType } from '../types';
 
 const listOfCitiesJSON = window.localStorage.getItem('listOfCities');
 
@@ -40,7 +12,7 @@ const initialState = {
     wind: 0,
     humidity: 0,
     pressure: 0,
-    icon: null,
+    icon: '',
     iconCode: '',
     id: null,
     country: '',

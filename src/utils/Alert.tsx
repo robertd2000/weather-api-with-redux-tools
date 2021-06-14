@@ -1,10 +1,10 @@
 import React from 'react';
 
-// type AlertType = {
-//   text: string;
-// };
+type AlertType = {
+  text: string;
+};
 
-export const Alert = ({ text }) => {
+export const Alert: React.FC<AlertType> = ({ text }) => {
   return (
     <div className="alert alert-info" role="alert">
       {text}

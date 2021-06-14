@@ -1,36 +1,42 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteCity } from '../redux/reducer';
+import { currentWeatherType } from '../types';
 import { Forecast } from './Forecast';
 
-export const CityItem = ({
-  name,
-  country,
-  date,
-  temp,
-  highestTemp,
-  lowestTemp,
-  description,
-  wind,
-  humidity,
-  pressure,
-  icon,
-  sunrise,
-  sunset,
-  clouds,
-  forecast,
-  id,
-}) => {
+type CityItemType = {
+  cityData: currentWeatherType;
+};
+
+export const CityItem: React.FC<CityItemType> = ({ cityData }) => {
+  const {
+    name,
+    country,
+    date,
+    temp,
+    highestTemp,
+    lowestTemp,
+    description,
+    wind,
+    humidity,
+    pressure,
+    iconCode,
+    sunrise,
+    sunset,
+    clouds,
+    forecast,
+    id,
+  } = cityData;
   const [isModalOpen, showModal] = useState(false);
 
   const dispatch = useDispatch();
-  const onDelete = (id) => {
+  const onDelete = (id: any) => {
     dispatch(deleteCity(id));
   };
   const onCloseModal = () => {
     return showModal(false);
   };
-  const iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
+  const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
   return (
     <>
       <Forecast

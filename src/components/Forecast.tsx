@@ -1,21 +1,23 @@
 import { ForecastHour } from './ForecatHour';
 import s from './Forecast.module.css';
+import { currentWeatherType, ForecastItemType } from '../types';
 
-export const Forecast = ({ forecast, isModalOpen, name, onCloseModal }) => {
+type ForecastType = {
+  forecast: any;
+  isModalOpen: boolean;
+  name: string;
+  onCloseModal: () => void;
+};
+
+export const Forecast: React.FC<ForecastType> = ({
+  forecast,
+  isModalOpen,
+  name,
+  onCloseModal,
+}) => {
   let isOpen = isModalOpen ? s.show : '';
-  const forecasts = forecast.map((item) => {
-    return (
-      <ForecastHour
-        key={item.dt}
-        temp={Math.floor(item.main.temp * 1) / 1}
-        pressure={item.main.pressure}
-        description={item.weather[0].description}
-        icon={item.weather[0].icon}
-        month={item.dt_txt.slice(5, 7)}
-        day={item.dt_txt.slice(8, 10)}
-        hour={item.dt_txt.slice(11, 13) * 1}
-      />
-    );
+  const forecasts = forecast.map((item: ForecastItemType) => {
+    return <ForecastHour key={item.dt} forecastData={item} />;
   });
 
   return (
