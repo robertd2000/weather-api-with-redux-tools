@@ -1,10 +1,41 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import Service from '../service/service';
 
+export type InitialStateType = {
+  currentWeather: currentWeatherType;
+  searchedCities: any;
+  loading: boolean;
+  alert: boolean;
+  error: string;
+};
+
+type currentWeatherType = {
+  name: string;
+  description: string;
+  temp: number;
+  wind: number;
+  humidity: number;
+  pressure: number;
+  icon?: any;
+  iconCode?: string;
+  id: null | number;
+  country: string;
+  highestTemp: number;
+  lowestTemp: number;
+
+  clouds: number;
+  sunrise: string;
+  sunset: string;
+  date: string;
+  forecast: Array<object>;
+};
+
+const listOfCitiesJSON = window.localStorage.getItem('listOfCities');
+
 const initialState = {
   currentWeather: {
     name: 'Chegem',
-    description: null,
+    description: '',
     temp: 10,
     wind: 0,
     humidity: 0,
@@ -12,10 +43,19 @@ const initialState = {
     icon: null,
     iconCode: '',
     id: null,
+    country: '',
+    highestTemp: 0,
+    lowestTemp: 0,
+    clouds: 0,
+    sunrise: '',
+    sunset: '',
+    date: '',
+    forecast: [],
   },
-  searchedCities: window.localStorage.getItem('listOfCities')
-    ? JSON.parse(window.localStorage.getItem('listOfCities'))
-    : {},
+  // searchedCities: window.localStorage.getItem('listOfCities')
+  //   ? JSON.parse(window.localStorage.getItem('listOfCities'))
+  //   : {},
+  searchedCities: listOfCitiesJSON !== null ? JSON.parse(listOfCitiesJSON) : {},
   loading: false,
   alert: false,
   error: '',
@@ -23,7 +63,7 @@ const initialState = {
 
 export const getWeatherThunk = createAsyncThunk(
   'weather/getWeatherThunk',
-  async (id) => {
+  async (id: string) => {
     const response = Service.getWeatherData(id);
     console.log(response);
     return response;
@@ -32,7 +72,7 @@ export const getWeatherThunk = createAsyncThunk(
 
 const weatherSlice = createSlice({
   name: 'weather',
-  initialState,
+  initialState: initialState as InitialStateType,
   reducers: {
     getWeather(state, action) {
       state.currentWeather.name = action.payload.name;
@@ -139,6 +179,7 @@ const weatherSlice = createSlice({
           );
         }
         state.loading = false;
+        return;
       });
   },
 });
