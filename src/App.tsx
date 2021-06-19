@@ -1,23 +1,25 @@
 import './App.css';
-import { useSelector } from 'react-redux';
-import { Header } from './components/Header';
-import { SearchedList } from './components/SearchedCitiesList';
-import { RootApp } from './types';
+import { Link, Route } from 'react-router-dom';
+import { CityInfo } from './components/CityInfo';
+import { ListOfCities } from './components/ListOfSities';
 
-function App() {
-  const data = useSelector((state: RootApp) => state.reducer.currentWeather);
-
-  const { name } = data;
-
+const App = (props: any) => {
   return (
     <>
       <div className="container">
-        <h3 className="App">Hello, {name}</h3>
-        <Header />
-        <SearchedList />
+        <Link to="/" className="mainPageLink">
+          <h4>WEATHER APP</h4>
+        </Link>
+        <Route exact path="/" render={() => <ListOfCities />} />
+        <Route
+          exact
+          path="/weather-api-with-redux-tools"
+          render={() => <ListOfCities />}
+        />
+        <Route path="/city/:cityId?" render={() => <CityInfo {...props} />} />
       </div>
     </>
   );
-}
+};
 
 export default App;

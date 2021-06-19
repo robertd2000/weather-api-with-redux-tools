@@ -1,7 +1,11 @@
 body {
   background: url('./assets/bg.jpg');
-
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   margin: 0;
+  top: 0;
+  left: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -20,6 +24,29 @@ button {
 
 .container {
   background: transparent;
+}
+
+.mainPageLink {
+  display: block;
+  height: 64px;
+  margin: 0px;
+  padding: 20px 0px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease 1.4s;
+  opacity: 1;
+}
+
+.main-content {
+  margin: 20px 0;
+}
+
+.mainPageLink:hover {
+  transform: scale(1.1);
+  color: #b8b3dd;
+  text-decoration: none;
 }
 
 code {
@@ -54,4 +81,190 @@ code {
 
 .modal-content {
   border: inherit;
+}
+
+.city {
+  margin-bottom: 40px;
+}
+
+.city-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 40px 0px;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  position: relative;
+  top: 20px;
+  /* animation: 0.5s ease 1.4s 1 normal forwards running dhgPis; */
+  color: white;
+}
+
+.city-info {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  flex-basis: 100%;
+}
+
+.city-info h2 {
+  font-size: 52px;
+  color: rgb(255, 255, 255);
+  display: block;
+  font-weight: 600;
+  text-align: left;
+  padding: 5px 0px;
+}
+
+.city-info h4 {
+  font-size: 26px;
+  color: rgb(255, 255, 255);
+  display: block;
+  font-weight: 400;
+  text-align: left;
+  padding: 5px 0px;
+}
+
+.city-weather-wrapper {
+  flex-basis: 50%;
+  display: grid;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  margin: 20px 0px;
+  gap: 30px;
+}
+
+.city-icon {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 70px;
+  color: rgb(255, 255, 255);
+}
+
+.city-icon img {
+  width: 100px;
+}
+
+.city-weather-temp h3 {
+  font-size: 110px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+}
+
+.city-weather-temp h4 {
+  font-weight: 400;
+  font-size: 26px;
+  text-align: left;
+  padding: 5px 0px;
+}
+
+.city-weather-data {
+  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0px;
+  margin: 20px 0px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  align-self: flex-start;
+}
+
+.city-weather-data-info {
+  flex-basis: calc(33.3333%);
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.city-weather-data-info h4 {
+  padding: 5px 0px;
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.city-weather-data-info span {
+  font-size: 19px;
+}
+
+.forecast-wrapper {
+  flex-shrink: 0;
+  flex-basis: 150px;
+  padding: 10px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.forecast-wrapper:first-child {
+  margin-left: 0;
+}
+
+.forecast-wrapper:last-child {
+  margin-left: 0;
+}
+
+.forecast-wrapper img {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+.forecast-wrapper h4 {
+  display: block;
+  font-weight: 400;
+
+  font-size: 26px;
+  text-align: center;
+  padding: 5px 0px;
+}
+.forecast-wrapper span {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  display: block;
+  font-size: 19px;
+  text-align: center;
+}
+
+.forecasts {
+  position: relative;
+  display: flex;
+  overflow: scroll hidden;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .city-weather-wrapper,
+  .city-weather-data {
+    flex-basis: 100%;
+  }
+  .city-weather-data-info {
+    flex-basis: calc(99%);
+  }
+  .city-weather-temp h3 {
+    font-size: 50px;
+  }
+  .city-weather-temp h4 {
+    font-size: 18px;
+  }
+  .mainPageLink h4 {
+    font-size: 20px;
+  }
+  .city-info h2 {
+    font-size: 35px;
+  }
+
+  .city-info h4 {
+    font-size: 18px;
+  }
 }

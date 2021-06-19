@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteCity } from '../redux/reducer';
 import { currentWeatherType } from '../types';
-import { Forecast } from './Forecast';
 
 type CityItemType = {
   cityData: currentWeatherType;
@@ -24,27 +23,16 @@ export const CityItem: React.FC<CityItemType> = ({ cityData }) => {
     sunrise,
     sunset,
     clouds,
-    forecast,
     id,
   } = cityData;
-  const [isModalOpen, showModal] = useState(false);
 
   const dispatch = useDispatch();
   const onDelete = (id: any) => {
     dispatch(deleteCity(id));
   };
-  const onCloseModal = () => {
-    return showModal(false);
-  };
   const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
   return (
     <>
-      <Forecast
-        isModalOpen={isModalOpen}
-        forecast={forecast}
-        name={name}
-        onCloseModal={onCloseModal}
-      />
       <div className="col-sm-6 shadow-lg p-3 mb-5 rounded">
         <div
           className="card"
@@ -103,10 +91,15 @@ export const CityItem: React.FC<CityItemType> = ({ cityData }) => {
             <hr />
             <button
               className="btn btn-secondary"
-              style={{ backgroundColor: '#b8b3dd', border: '#b8b3dd' }}
-              onClick={() => showModal(true)}
+              style={{
+                backgroundColor: '#b8b3dd',
+                border: '#b8b3dd',
+                color: 'white',
+              }}
             >
-              Открыть прогноз
+              <Link style={{ color: 'white' }} to={`/city/${id}`}>
+                Открыть прогноз
+              </Link>
             </button>
           </div>
         </div>
