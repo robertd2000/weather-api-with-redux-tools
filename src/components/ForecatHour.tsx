@@ -1,18 +1,18 @@
-import { ForecastItemType } from '../types';
+import { ForecastItemType } from '../types'
 
 type ForecastHourType = {
-  forecastData: ForecastItemType;
-};
+  forecastData: ForecastItemType
+}
 
 export const ForecastHour: React.FC<ForecastHourType> = ({ forecastData }) => {
   const temp = Math.floor(forecastData.main.temp * 1) / 1,
-    // pressure = forecastData.main.pressure,
     description = forecastData.weather[0].description,
     icon = forecastData.weather[0].icon,
     month = forecastData.dt_txt.slice(5, 7),
     day = forecastData.dt_txt.slice(8, 10),
-    hour = forecastData.dt_txt.slice(11, 13);
-  const iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
+    hour = forecastData.dt_txt.slice(11, 13)
+
+  const iconUrl = `https://openweathermap.org/img/w/${icon}.png`
 
   return (
     <div className="forecast-wrapper">
@@ -24,5 +24,5 @@ export const ForecastHour: React.FC<ForecastHourType> = ({ forecastData }) => {
       <span>{description}</span>
       <h4>{temp}°</h4>
     </div>
-  );
-};
+  )
+}

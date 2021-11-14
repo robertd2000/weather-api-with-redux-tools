@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getWeatherThunk } from '../redux/reducer';
-import { RootApp } from '../types';
-import { Alert } from '../utils/Alert';
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getWeatherThunk } from '../redux/reducer'
+import { RootApp } from '../types'
+import { Alert } from '../utils/Alert'
 
 export const Header = () => {
-  const [text, setText] = useState('');
-  const dispatch = useDispatch();
-  const alert = useSelector((state: RootApp) => state.reducer.alert);
-  const error = useSelector((state: RootApp) => state.reducer.error);
+  const [text, setText] = useState('Chegem')
+  const dispatch = useDispatch()
+  const alert = useSelector((state: RootApp) => state.reducer.alert)
+  const error = useSelector((state: RootApp) => state.reducer.error)
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
+    setText(e.target.value)
+  }
   const buttonHandler = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    await dispatch(getWeatherThunk(text));
-    setText('');
-  };
+    e.preventDefault()
+    await dispatch(getWeatherThunk(text))
+    setText('')
+  }
   return (
     <>
       <form onSubmit={buttonHandler}>
@@ -46,5 +46,5 @@ export const Header = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}
