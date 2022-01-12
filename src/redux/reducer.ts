@@ -4,7 +4,7 @@ import { InitialStateType } from '../types'
 
 const initialState = {
   currentWeather: {
-    name: 'Chegem',
+    name: 'London',
     description: '',
     temp: 10,
     wind: 0,
